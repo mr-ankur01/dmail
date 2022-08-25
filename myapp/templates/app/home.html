@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WP Temp Mail &#8211; Temp Mail Service Powered By WordPress</title>
+    <meta name='robots' content='max-image-preview:large' />
+    {% load static %}
+    <link rel='stylesheet'  href="{% static 'myapp/home.css' %}">
+    <link rel='stylesheet' href="{% static 'myapp/app.css' %}">
+    <link rel='stylesheet' href="{% static 'myapp/foot.css' %}">
+    <link rel='stylesheet' id='dashicons-css'
+        href='https://wp-temp-mail.com/wp-includes/css/dashicons.min.css?ver=6.0.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='post-views-counter-frontend-css'
+        href='https://wp-temp-mail.com/wp-content/plugins/post-views-counter/css/frontend.css?ver=1.3.11'
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-icons-css'
+        href='https://wp-temp-mail.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.15.0'
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-frontend-css'
+        href='https://wp-temp-mail.com/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.6.8'
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='elementor-post-158-css'
+        href='https://wp-temp-mail.com/wp-content/uploads/elementor/css/post-158.css?ver=1659062279' type='text/css'
+        media='all' />
+    <link rel='stylesheet' id='elementor-global-css'
+        href='https://wp-temp-mail.com/wp-content/uploads/elementor/css/global.css?ver=1659062283' type='text/css'
+        media='all' />
+    <link rel='stylesheet' id='elementor-post-8-css'
+        href='https://wp-temp-mail.com/wp-content/uploads/elementor/css/post-8.css?ver=1659062279' type='text/css'
+        media='all' />
+    <link rel='stylesheet' id='wp-tm-style-css'
+        href='https://wp-temp-mail.com/wp-content/themes/temp-mail-x-premium/dist/css/style.min.__premium_only.css?ver=1.0.4'
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='mek-ui-style-css'
+        href='https://wp-temp-mail.com/wp-content/plugins/moose-elementor-kit-premium/assets/css/style.min.__premium_only.css?ver=1.0.0'
+        type='text/css' media='all' />
+        
+</head>
+
+<body
+    class="home page-template page-template-templates page-template-container page-template-templatescontainer-php page page-id-8 wp-custom-logo mek-theme-default w-full h-full min-h-screen text-base-content bg-base-100 elementor-default elementor-kit-158 elementor-page elementor-page-8">
+    <header class="absolute w-full z-50">
+        <nav class="navbar py-0 relative z-10 navbar-transparent">
+            <div class="container mx-auto px-half-gutter min-h-[68px]">
+                <div class="flex-grow flex navbar-end">
+                    <ul id="menu-primary-menu"
+                        class="menu-horizontal hidden lg:flex menu menu-sm menu-transparent menu-links">
+                        <li id="menu-item-19"
+                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-19">
+                        {{request.user.username}} |
+                    </li>
+                        <li id="menu-item-19"
+                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-19">
+                            <a href="/">Home</a>
+                        </li>
+                        <li id="menu-item-167"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-167"><a
+                                href="/docs">Docs</a>
+                        </li>
+                        {% if request.user.username %}
+                        <li id="menu-item-196"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-196"><a
+                                href="/custom">Custom Email</a>
+                        </li>
+                       
+                        <li id="menu-item-22"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a
+                                href="/logout">Logout</a></li>
+                        {% else %}
+                        <li id="menu-item-22"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a
+                                href="/sign">Signup</a></li>
+                        <li id="menu-item-40"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40"><a
+                                 rel="noopener" href="/login">Login</a></li>
+                        {% endif %}
+                    </ul> <!-- /.primary-menu -->
+
+                </div>
+            </div>
+
+            
+        </nav>
+    </header>
+
+    <div id="search-modal" class="hidden w-full h-full bg-base z-[999] fixed top-0 left-0 p-gutter">
+        <div data-redirect-focus="#close-search-modal-button"
+            class="max-w-md mx-auto mt-60 form-controls form-solid form-primary">
+            <form role="search" method="get" action="https://wp-temp-mail.com/">
+                <label class="flex items-stretch flex-grow mb-0" for="search-form-630505edd395e">
+                    <span class="screen-reader-text">Search for:</span>
+                    <div class="relative">
+                        <input type="search" id="search-form-630505edd395e" placeholder="Search &hellip;" value=""
+                            name="s" />
+                        <button type="submit" class="btn btn-primary rounded-l-none py-0 h-full absolute top-0 right-0">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </label>
+            </form>
+        </div>
+
+        <button id="close-search-modal-button" data-toggle="toggle" data-toggle-target="#search-modal"
+            data-toggle-hidden-focus="#nav-search-toggle" type="button" class="absolute right-10 top-10 btn text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <section class="relative hero pt-16 "
+        style="color: #fff;background-image: url(https://wp-temp-mail.com/wp-content/uploads/2022/03/man-silhouette-abstract-black-and-white-mist-white-1349503-pxhere.com_.jpg)">
+        <div id="wp-tm-hero-particles"
+            data-wp-tm-particles="{&quot;particles&quot;:{&quot;number&quot;:{&quot;value&quot;:80,&quot;density&quot;:{&quot;enable&quot;:true,&quot;value_area&quot;:800}},&quot;color&quot;:{&quot;value&quot;:&quot;#0ea5e9&quot;},&quot;shape&quot;:{&quot;type&quot;:&quot;circle&quot;,&quot;stroke&quot;:{&quot;width&quot;:0,&quot;color&quot;:&quot;#000000&quot;},&quot;polygon&quot;:{&quot;nb_sides&quot;:5},&quot;image&quot;:{&quot;src&quot;:&quot;img/github.svg&quot;,&quot;width&quot;:100,&quot;height&quot;:100}},&quot;opacity&quot;:{&quot;value&quot;:0.5,&quot;random&quot;:false,&quot;anim&quot;:{&quot;enable&quot;:false,&quot;speed&quot;:1,&quot;opacity_min&quot;:0.1,&quot;sync&quot;:false}},&quot;size&quot;:{&quot;value&quot;:3,&quot;random&quot;:true,&quot;anim&quot;:{&quot;enable&quot;:false,&quot;speed&quot;:40,&quot;size_min&quot;:0.1,&quot;sync&quot;:false}},&quot;line_linked&quot;:{&quot;enable&quot;:true,&quot;distance&quot;:150,&quot;color&quot;:&quot;#0ea5e9&quot;,&quot;opacity&quot;:0.4,&quot;width&quot;:1},&quot;move&quot;:{&quot;enable&quot;:true,&quot;speed&quot;:2,&quot;direction&quot;:&quot;none&quot;,&quot;random&quot;:true,&quot;straight&quot;:false,&quot;out_mode&quot;:&quot;bounce&quot;,&quot;bounce&quot;:false,&quot;attract&quot;:{&quot;enable&quot;:false,&quot;rotateX&quot;:600,&quot;rotateY&quot;:1200}}},&quot;interactivity&quot;:{&quot;detect_on&quot;:&quot;canvas&quot;,&quot;events&quot;:{&quot;onhover&quot;:{&quot;enable&quot;:true,&quot;mode&quot;:&quot;repulse&quot;},&quot;onclick&quot;:{&quot;enable&quot;:true,&quot;mode&quot;:&quot;push&quot;},&quot;resize&quot;:true},&quot;modes&quot;:{&quot;grab&quot;:{&quot;distance&quot;:400,&quot;line_linked&quot;:{&quot;opacity&quot;:1}},&quot;bubble&quot;:{&quot;distance&quot;:400,&quot;size&quot;:40,&quot;duration&quot;:2,&quot;opacity&quot;:8,&quot;speed&quot;:3},&quot;repulse&quot;:{&quot;distance&quot;:200,&quot;duration&quot;:0.4},&quot;push&quot;:{&quot;particles_nb&quot;:4},&quot;remove&quot;:{&quot;particles_nb&quot;:2}}},&quot;retina_detect&quot;:true}"
+            data-wp-tm-detect-on="" data-wp-tm-shape="" data-wp-tm-color="" data-wp-tm-opacity="0.70"
+            data-wp-tm-quantity="98" data-wp-tm-speed="1" data-wp-tm-size=""
+            class="absolute w-full h-full left-0 top-0 z-[1]"></div>
+        <div class="absolute w-full h-full left-0 top-0" style="background-color: rgba(30,41,59,0.7)"></div>
+        <div class="content relative w-full top-0 z-[2]">
+
+            <div class="wp-tm-hero-content container mx-auto px-half-gutter pt-20 pb-36 text-center">
+                <div class="md:max-w-screen-md mx-auto">
+                    <h1 class="text-5xl mb-8 font-bold">
+                        Your Temporary <span class="wp-tm-hero-title-highlight text-primary">
+                            Email Address </span>
+                    </h1>
+
+                    <p class="text-lg font-light opacity-75 mb-gutter">
+                        Forget about spam, advertising mailings, hacking and attacking robots. Keep your real mailbox
+                        clean and secure. Temp Mail provides temporary, secure, anonymous, free, disposable email
+                        address. </p>
+
+                    <div class="max-w-screen-md mx-auto">
+
+                        <div class="tm-mailbox flex justify-center items-stretch">
+                            <span
+                                class="tm-email-input bg-[#fff]/20 px-4 py-1 font-mono flex justify-center items-center lg:min-w-[18rem]">
+                                <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                    data-cfemail="bbf2d5ebfed9fad8ec8becdcfbd0ded7dacfd495c8d2cfde">{{email}}</a>
+                            </span>
+                            <button onclick="navigator.clipboard.writeText('{{email}}');alert('address is copy');" data-tm-tooltip="Click To Copy" data-clipboard-text="{{email}}" type="button"
+                                class="tm-copy-to-clipboard btn btn-primary fill-primary-content p-3">
+                                <svg class="clipboard-icon" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512">
+                                    <path
+                                        d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z" />
+                                </svg>
+                                <svg class="check-icon" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512">
+                                    <path
+                                        d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" />
+                                </svg>
+                                <span>Copy</span>
+                            </button>
+                        </div>
+
+                        <div class="tm-controls-wrap mt-double-gutter">
+                            <div
+                                class="tm-controls flex flex-col md:flex-row justify-center items-center space-y-gutter md:space-y-0 md:space-x-gutter">
+                                <a class="text-center w-[18rem] md:w-auto bg-[#fff]/10 hover:bg-primary-focus hover:text-primary-content px-double-gutter py-half-gutter border-none"
+                                    href="/">
+                                    Refresh </a>
+
+                                    <a class="text-center w-[18rem] md:w-auto bg-[#fff]/10 hover:bg-primary-focus hover:text-primary-content px-double-gutter py-half-gutter border-none"
+                                    href="/change">
+                                    change </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="wp-tm-hero-shape-divider" data-negative="false">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.5 19.6" preserveAspectRatio="none">
+                <path class="wp-tm-shape-fill" style="opacity:0.33" d="M0 0L0 18.8 141.8 4.1 283.5 18.8 283.5 0z" />
+                <path class="wp-tm-shape-fill" style="opacity:0.33" d="M0 0L0 12.6 141.8 4 283.5 12.6 283.5 0z" />
+                <path class="wp-tm-shape-fill" style="opacity:0.33" d="M0 0L0 6.4 141.8 4 283.5 6.4 283.5 0z" />
+                <path class="wp-tm-shape-fill" d="M0 0L0 1.2 141.8 4 283.5 1.2 283.5 0z" />
+            </svg>
+        </div>
+    </section>
+
+    <div class="max-w-screen-md mx-auto my-double-gutter px-half-gutter overflow-auto">
+
+        <table class="tm-inbox w-full">
+            <thead class="tm-inbox-header bg-accent border border-solid border-accent text-accent-content">
+                <tr>
+                    <th class="tm-inbox-header-col py-half-gutter px-gutter text-left">
+                       No </th>
+                        <th class="tm-inbox-header-col py-half-gutter px-gutter text-left">
+                            Sender </th>
+                    <th class="tm-inbox-header-col py-half-gutter px-gutter text-left">
+                        Subject </th>
+                    <th class="tm-inbox-header-col py-half-gutter px-gutter text-left">
+                        Detail </th>
+                </tr>
+            </thead>
+            <tbody
+                class="tm-inbox-content bg-base divide-y divide-base-200 border border-t-0 border-solid border-base-200">
+                   
+                        {% for inbox in inbox %}
+                        <tr>
+                    <td class="tm-inbox-header-col py-half-gutter px-gutter text-left">
+                        {{forloop.counter}}   </td>
+                    
+                    <td class="tm-inbox-header-col py-half-gutter px-gutter text-left">
+                            {% if inbox.senderName %}  {{inbox.senderName}} {% else %} No User Name{% endif %} </td>
+                    <td class="tm-inbox-header-col py-half-gutter px-gutter text-left">
+                        {{inbox.subject}} </td>
+                    <td class="tm-inbox-header-col py-half-gutter px-gutter text-left">
+                        <a class="open" href="{% url 'message' inbox.id %}">Open </a></td>
+                    </tr>
+
+                    {% empty %}
+
+                <tr>
+                    <td colspan="4">
+                        <div class="tm-inbox-no-message text-center py-double-gutter">
+                            No Message Yet  </div>
+                    </td>
+                </tr>
+                        {% endfor %}
+                 
+            </tbody>
+        </table>
+
+    </div>
+
+ 
+
+
+
+
+
+    <!-- footer start -->
+    <footer>
+        <div class="bottom-layout">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="logo-reserve">
+                            <p class="mb-md-0 text-center text-md-left mt-2 ">
+                                &copy; <a class=" font-weight-semi-bold" href="#">Disposable-Mail</a>. All Rights Reserved.
+                                <a class=" font-weight-semi-bold" href=""></a><br>
+                                Distributed By <a>Ankur Batch</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>  
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+
+</html>

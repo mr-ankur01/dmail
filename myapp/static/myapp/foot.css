@@ -1,0 +1,10 @@
+.bottom-layout{
+    background-color: #0e111e;
+    text-align: center;
+    color: aliceblue;
+    height: 10vh;
+}
+
+.container-fluid{
+    margin-top: 2rem;
+}

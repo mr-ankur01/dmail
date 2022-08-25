@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container border bg-light mt-4 p-3 rounded d-flex">
+    <div class="container d-flex pl-1">
+    <ul type="none">
+      <li class="font-bold">Name</li>
+      <li class="font-bold">From</li>
+      <li class="font-bold">To</li>
+      <li class="font-bold">Subject</li>
+      <li class="font-bold">Received</li>
+    </ul>
+
+    <ul type="none">
+      {% if inbox.senderName %}
+      <li class="font-n">{{inbox.senderName}}</li>
+      {% else %}
+      <li class="font-n">No user name</li>
+      {% endif %}
+      <li class="font-n">{{inbox.senderEmail}}</li>
+      <li class="font-n">{{inbox.to}}</li>
+      <li class="font-n">{{inbox.subject}}</li>
+      <li class="font-n">{{inbox.date}}</li>
+    </ul>
+    
+  </div>
+  <div class="wrapper-attachments p-xy-20 w-100 ff-futura-demi" style="text-align: right;">
+    <div style="float:right">
+      {% load static %}
+      <a class="btn-delete d-flex align-items-center text-decoration-none" 
+        style="cursor: pointer;width: 110px;" href="" value="{{inbox.id}}">
+        <img src="{% static '/images/delete.png' %}" >
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container border bg-light mt-4 p-3 rounded d-flex">
+    <div class="container ml-4 pl-1">
+    <table>
+        <tr>
+            <th>Name</th>
+            <td
+              class="font-n">{{inbox.senderName}}
+            </td>
+        </tr>
+        <tr>
+            <th>From</th>
+            <td
+              class="font-n">{{inbox.senderName}}
+            </td>
+        </tr>
+        <tr>
+            <th>Subject</th>
+            <td
+              class="font-n">{{inbox.senderName}} 
+            </td>
+        </tr>
+        <tr>
+            <th>To</th>
+            <td
+              class="font-n">{{inbox.senderName}} 
+            </td>
+        </tr>
+        <tr>
+            <th>Created At</th>
+            <td
+              class="font-n">{{inbox.senderName}}
+            </td>
+        </tr>
+    </table> 
+  </div>
+  <div class="wrapper-attachments p-xy-20 w-100 ff-futura-demi" style="text-align: right;">
+    <div style="float:right">
+      {% load static %}
+      <a class="btn-delete d-flex align-items-center text-decoration-none" 
+        style="cursor: pointer;width: 110px;" href="" value="{{inbox.id}}">
+        <img src="{% static '/images/delete.png' %}" >
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
