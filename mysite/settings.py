@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-p=6r4ndeb5+tg&=&h9koyuz05&^jzh^@ueh&07jseehyh)-vks
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['dmail55.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','dmail55.herokuapp.com']
 
 
 # Application definition
