@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-p=6r4ndeb5+tg&=&h9koyuz05&^jzh^@ueh&07jseehyh)-vks
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','dmail55.herokuapp.com']
+ALLOWED_HOSTS = ['dmail55.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -44,7 +44,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -134,7 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_ROOT= os.path.join(BASE_DIR,'staticfiles')
+
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR,'static'),
 ]
