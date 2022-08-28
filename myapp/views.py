@@ -71,8 +71,10 @@ def home(request):
             from .mailtm import generate_address,generate_password,domain
             address = generate_address() + domain
             password = generate_password() 
+            print(address)
             UserEmail.objects.filter(user=user_id).delete()
             acc = accounts.create(address,password)
+            print(acc)
             acc_id=acc['id']
             mail=UserEmail(address=address,password=password,user=user,acc_id=acc_id)
             mail.save()

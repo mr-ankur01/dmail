@@ -1,12 +1,9 @@
 import random
 import string
-
-
-
-
+from .import domains
 BASE_URL = 'https://api.mail.tm'
-domain ='@arxxwalls.com'
 
+domain=domains.get()
 
 def generate_password():
     CHARS = string.ascii_letters + string.digits
@@ -18,5 +15,5 @@ def generate_address():
     chatset = [random.choice(CHARS) for _ in range(10)]
     return ''.join(chatset)
 
-address = generate_address() + domain
+address = generate_address() +domain
 password = generate_password() 
