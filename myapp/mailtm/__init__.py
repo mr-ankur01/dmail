@@ -15,5 +15,5 @@ def generate_address():
     chatset = [random.choice(CHARS) for _ in range(10)]
     return ''.join(chatset)
 
-address = generate_address() +domain
+address = generate_address() + domain
 password = generate_password() 

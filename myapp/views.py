@@ -151,7 +151,7 @@ def custom(request):
             except:
                 acc = accounts.create(address1,password2)
                 messages.error(request,'Account has already created')
-                return render(request,'custom.html')
+                return render(request,'app/custom.html')
             else:
                 UserEmail.objects.filter(user=user).delete()
                 mail=UserEmail(address=custom_addr+domain,password=password,user=user,acc_id=acc_id)
